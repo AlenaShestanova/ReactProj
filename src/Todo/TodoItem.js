@@ -16,13 +16,13 @@ let styles={
  }
 }
  function TodoItem ({todo,index,onChange}) {
-let classes=[]
+let classes
   if(todo.completed){
-   classes.push('done')
+   classes='done'
   }
 
  return <li style={styles.li}>
-  <span className={classes.join(' ')}>
+  <span className={classes}>
    <input type="checkbox" style={styles.input} onChange={()=>onChange(todo.id)}/>
 
   <strong>{index+1}</strong>
