@@ -25,9 +25,10 @@ setTodos(todos.filter(todo=>todo.id!==id))
   return (
     <Context.Provider value={{removeTodo:removeTodo}}>
    <div className="wrapper">
-<h1> React tutorial
-    <TodoList todos={todos} onToggle={toggleTodo}/>
-</h1>
+<h1> React tutorial</h1>
+       {todos.length ? <TodoList todos={todos} onToggle={toggleTodo}/>:<p>No todos</p>}
+
+
    </div>
     </Context.Provider>
   );
