@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-let style={
+let styles={
  li:{
   display:'flex',
   justifyContent:'space-between',
@@ -10,21 +10,32 @@ let style={
   border:'1px solid #ccc',
   borderRadius:'4px',
   marginBottom:'.5rem'
+ },
+ input:{
+  marginRight:'1rem'
  }
 }
- function TodoItem ({todo,index}) {
- return <li style={style.li}>
-  <span>
-   <input type="checkbox"/>
+ function TodoItem ({todo,index,onChange}) {
+let classes=[]
+  if(todo.completed){
+   classes.push('done')
+  }
 
-  <strong>{index+1}</strong>{todo.title}
+ return <li style={styles.li}>
+  <span className={classes.join(' ')}>
+   <input type="checkbox" style={styles.input} onChange={()=>onChange(todo.id)}/>
+
+  <strong>{index+1}</strong>
+   &nbsp;
+   {todo.title}
      </span>
-  <button>&times;</button>
+  <button className="rm">&times;</button>
  </li>
 
 }
 TodoItem.propTypes={
  todo:PropTypes.object.isRequired,
- index: PropTypes.number
+ index: PropTypes.number,
+ onChange:PropTypes.func.isRequired
 }
 export default TodoItem
