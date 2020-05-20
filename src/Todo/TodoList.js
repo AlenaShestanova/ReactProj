@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import TodoItem from "./TodoItem";
 let styles={
     ul:{
@@ -7,13 +9,17 @@ let styles={
         padding:0
     }
 };
-export default  function TodoList(props){
+ function TodoList(props){
 return(
     <ul style={styles.ul}>
-        {props.todos.map(todo => {
-            return <TodoItem todo={todo}/>
+        {props.todos.map((todo,index) => {
+            return <TodoItem todo={todo} key={todo.id} index={index}/>
         })}
 
     </ul>
 )
 }
+TodoList.propType={
+     todos:PropTypes.arrayOf(PropTypes.object).isRequired
+}
+export default TodoList
