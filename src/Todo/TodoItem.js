@@ -23,7 +23,7 @@ let classes
 
  return <li style={styles.li}>
   <span className={classes}>
-   <input type="checkbox" style={styles.input} onChange={()=>onChange(todo.id)}/>
+   <input type="checkbox"  checked={todo.completed} style={styles.input} onChange={()=>onChange(todo.id)} />
 
   <strong>{index+1}</strong>
    &nbsp;
