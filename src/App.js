@@ -4,7 +4,7 @@ import Context from "./context";
 import AddTodo from "./Todo/AddTodo";
 
 function App() {
-    let [todos, setTodos] = React.useState([
+    const [todos, setTodos] = React.useState([
         {id: 1, completed: false, title: 'Дело1'},
         {id: 2, completed: false, title: 'Дело2'},
         {id: 3, completed: false, title: 'Дело3'}

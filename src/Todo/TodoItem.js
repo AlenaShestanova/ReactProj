@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import PropTypes from 'prop-types'
 import Context from "../context";
 
-let styles = {
+const styles = {
     li: {
         display: 'flex',
         justifyContent: 'space-between',
@@ -18,7 +18,7 @@ let styles = {
 }
 
 function TodoItem({todo, index, onChange}) {
-    let {removeTodo} = useContext(Context)
+    const {removeTodo} = useContext(Context)
     let classes
     if (todo.completed) {
         classes = 'done'
